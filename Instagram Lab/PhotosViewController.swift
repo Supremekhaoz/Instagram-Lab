@@ -33,12 +33,11 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        /*if let photos = photos {
+        if let photos = photos {
             return photos.count
         } else {
             return 0
-        }*/
-        return 20
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -46,13 +45,20 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         
         let photo = photos?[indexPath.row]
         let user = photo?["user"]!["username"] as? String!
-        let url = photo!["images"]!["low_resolution"]!!["url"] as! String!
-      
-        let imageUrl = NSURL(string: url)
+        let photourl = photo?["images"]!["low_resolution"]!!["url"] as? String
+        let avatarUrl = photo?["user"]!["profile_picture"] as? String
         
-        cell.userLabel!.text = "\(user)"
-        cell.imageLabel.setImageWithURL(imageUrl!)
+        if let imageUrl = photourl {
+            cell.imageLabel.setImageWithURL(NSURL(string: imageUrl)!)
+        }
         
+        if let user = user {
+            cell.userLabel!.text = user
+        }
+        
+        if let avatarUrl = avatarUrl {
+            cell.avatarView.setImageWithURL(NSURL(string: avatarUrl)!)
+        }
         return cell
     }
     

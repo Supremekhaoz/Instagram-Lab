@@ -13,32 +13,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="384" sectionHeaderHeight="28" sectionFooterHeight="28" id="veN-yq-d9E">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="441" sectionHeaderHeight="28" sectionFooterHeight="28" id="veN-yq-d9E">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="384" id="Ves-9T-5Ex" customClass="PhotoCell" customModule="Instagram_Lab" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="384"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="441" id="Ves-9T-5Ex" customClass="PhotoCell" customModule="Instagram_Lab" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="441"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ves-9T-5Ex" id="hq2-xd-pYA">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="383"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fVC-V7-SaK">
-                                                    <rect key="frame" x="8" y="16" width="304" height="21"/>
+                                                    <rect key="frame" x="74" y="36" width="238" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="eYK-e0-Dad">
+                                                    <rect key="frame" x="8" y="18" width="58" height="58"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="reJ-VT-4Ea">
-                                                    <rect key="frame" x="8" y="45" width="304" height="320"/>
+                                                    <rect key="frame" x="8" y="91" width="304" height="319"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="avatarView" destination="eYK-e0-Dad" id="f59-Ks-ajO"/>
                                             <outlet property="imageLabel" destination="reJ-VT-4Ea" id="WMa-2x-JpS"/>
                                             <outlet property="userLabel" destination="fVC-V7-SaK" id="VcM-d4-12B"/>
                                         </connections>

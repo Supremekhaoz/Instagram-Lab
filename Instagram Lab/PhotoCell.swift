@@ -12,6 +12,7 @@ class PhotoCell: UITableViewCell {
 
     @IBOutlet weak var imageLabel: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var avatarView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
