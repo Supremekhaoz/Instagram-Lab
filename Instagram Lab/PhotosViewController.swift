@@ -46,7 +46,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         
         let photo = photos?[indexPath.row]
         let user = photo?["user"]!["username"] as? String!
-        let url = photo!["images"]!["low_resolution"]!!["url"] as! String
+        let url = photo!["images"]!["low_resolution"]!!["url"] as! String!
       
         let imageUrl = NSURL(string: url)
         
