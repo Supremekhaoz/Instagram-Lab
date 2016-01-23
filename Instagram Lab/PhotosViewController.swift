@@ -33,7 +33,11 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        if let photos = photos {
+            return photos.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -59,7 +63,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
                             NSLog("response: \(responseDictionary["data"])")
-                            self.photos = responseDictionary["data"] as! NSDictionary
+                            self.photos = responseDictionary["data"] as? NSDictionary
                     }
                 }
         });
