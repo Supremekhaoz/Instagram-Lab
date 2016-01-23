@@ -13,7 +13,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    var photos:NSDictionary!
+    var photos:[NSDictionary]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,17 +33,26 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let photos = photos {
+        /*if let photos = photos {
             return photos.count
         } else {
             return 0
-        }
+        }*/
+        return 20
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell", forIndexPath: indexPath)
-
-        cell.textLabel!.text = "user\(indexPath.row)"
+        let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell") as! PhotoCell
+        
+        let photo = photos?[indexPath.row]
+        let user = photo?["user"]!["username"] as? String!
+        let url = photo!["images"]!["low_resolution"]!!["url"] as! String
+      
+        let imageUrl = NSURL(string: url)
+        
+        cell.userLabel!.text = "\(user)"
+        cell.imageLabel.setImageWithURL(imageUrl!)
+        
         return cell
     }
     
@@ -62,8 +71,9 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
                 if let data = dataOrNil {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-                            NSLog("response: \(responseDictionary["data"])")
-                            self.photos = responseDictionary["data"] as? NSDictionary
+                            NSLog("response: \(responseDictionary["data"]![0])")
+                            self.photos = responseDictionary["data"] as? [NSDictionary]
+                            self.tableView.reloadData()
                     }
                 }
         });
