@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="AcK-5z-Hnj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -18,11 +18,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="441" id="Ves-9T-5Ex" customClass="PhotoCell" customModule="Instagram_Lab" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="441"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="441" id="Ves-9T-5Ex" customClass="PhotoCell" customModule="Instagram_Lab" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="441"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ves-9T-5Ex" id="hq2-xd-pYA">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="440"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fVC-V7-SaK">
@@ -46,6 +46,7 @@
                                             <outlet property="avatarView" destination="eYK-e0-Dad" id="f59-Ks-ajO"/>
                                             <outlet property="imageLabel" destination="reJ-VT-4Ea" id="WMa-2x-JpS"/>
                                             <outlet property="userLabel" destination="fVC-V7-SaK" id="VcM-d4-12B"/>
+                                            <segue destination="KHj-od-il0" kind="push" id="kGr-zl-fKf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -53,11 +54,54 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Mgv-dg-le5"/>
                     <connections>
                         <outlet property="tableView" destination="veN-yq-d9E" id="NU1-HI-bL7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="726" y="407"/>
+        </scene>
+        <!--Photo Details View Controller-->
+        <scene sceneID="a9y-Hu-V7s">
+            <objects>
+                <viewController id="KHj-od-il0" customClass="PhotoDetailsViewController" customModule="Instagram_Lab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uba-sW-il6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="eA6-9j-aD4">
+                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="UDb-kW-GJ0"/>
+                    <connections>
+                        <outlet property="photoView" destination="eA6-9j-aD4" id="dMh-fi-Jpy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jip-4z-jeU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="407"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kr6-ET-nun">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AcK-5z-Hnj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bfo-j8-Sn5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Yth-lG-zwZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bfg-C0-WCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="317" y="407"/>
         </scene>
