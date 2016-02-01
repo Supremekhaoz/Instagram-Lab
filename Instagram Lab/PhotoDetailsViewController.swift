@@ -17,7 +17,7 @@ class PhotoDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let photoUrl = photo?["images"]!["low_resolution"]!!["url"] as? String {
+        if let photoUrl = photo?["images"]!["high_resolution"]!!["url"] as? String {
            let imageUrl = NSURL(string: photoUrl)
             photoView.setImageWithURL(imageUrl!)
         }
